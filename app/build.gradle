@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+
+//Firebase plugin
+//apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.githiomi.renu"
+        minSdkVersion 22
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+
+    testImplementation "org.robolectric:robolectric:4.2"
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+
+//    Retrofit dependency implementation
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+//    okhttp3 dependency
+    implementation 'com.squareup.okhttp3:okhttp:3.2.0'
+    implementation 'se.akerfeldt:okhttp-signpost:1.1.0'
+
+//    okhttp3 interceptor
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+
+//    Parcel Library
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
+
+//    Picasso dependency
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+//    Firebase Implementation Dependencies
+    //    for analytics
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
+    //    for authentication
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
+    //    firebase sdk
+    implementation 'com.google.firebase:firebase-core:17.4.2'
+    //    firebase database
+    implementation 'com.google.firebase:firebase-database:19.3.0'
+    //    firebase recycler view
+    implementation 'com.firebaseui:firebase-ui-database:3.3.1'
+    //    firebase authentication
+    implementation 'com.google.firebase:firebase-auth:16.1.0'
+
+}
