@@ -1,8 +1,10 @@
 package com.githiomi.renu.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.githiomi.renu.R;
+import com.githiomi.renu.adapters.CategoryAdapter;
 import com.githiomi.renu.models.Category;
 import com.githiomi.renu.network.RenuApi;
 import com.githiomi.renu.network.RenuClient;
@@ -31,10 +34,14 @@ public class MainActivityFragment extends Fragment {
     private static final String TAG = MainActivityFragment.class.getSimpleName();
 
 //    Local variables
+    // For context
+    private Context mContext = getActivity();
     //for all the categories
     private List<Category> mAllCategories;
     // List of category names
     private List<String> mCategoryNames;
+    // for the adapter
+    private CategoryAdapter categoryAdapter;
 
 //    Binding widgets
 
@@ -100,6 +107,8 @@ public class MainActivityFragment extends Fragment {
 
                     }
                     Log.d(TAG, "onResponse: These are all the category names: " + mCategoryNames);
+
+                    passToAdapter(mAllCategories);
                 }
                 else {
                     Log.d(TAG, "onResponse: Call was made but responce was not successful");
@@ -113,6 +122,14 @@ public class MainActivityFragment extends Fragment {
 
             }
         });
+
+    }
+
+//    Custom method meant to get the data from api to the adapter
+    private void passToAdapter(List<Category> categoryList) {
+
+        categoryAdapter = new CategoryAdapter(mContext, categoryList);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 3, GridLayoutManager.VERTICAL, false);
 
     }
 }
