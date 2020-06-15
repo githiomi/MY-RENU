@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,6 +45,7 @@ public class MainActivityFragment extends Fragment {
     private CategoryAdapter categoryAdapter;
 
 //    Binding widgets
+    @BindView(R.id.recyclerCategory) RecyclerView mRecyclerCategoryView;
 
     public MainActivityFragment() {
         // Required empty public constructor
@@ -131,5 +133,9 @@ public class MainActivityFragment extends Fragment {
         categoryAdapter = new CategoryAdapter(mContext, categoryList);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 3, GridLayoutManager.VERTICAL, false);
 
+        mRecyclerCategoryView.setAdapter(categoryAdapter);
+        mRecyclerCategoryView.setLayoutManager(gridLayoutManager);
+
+        categoryAdapter.notifyDataSetChanged();
     }
 }

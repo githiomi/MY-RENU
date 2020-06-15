@@ -75,9 +75,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         public void bindCategory(Category category){
 
+            final int MAX_WIDTH = 200;
+            final int MAW_HEIGHT = 200;
+
             Picasso.get()
                     .load(category.getImageUrl())
+                    .resize(MAX_WIDTH, MAW_HEIGHT)
+                    .centerCrop()
                     .into(mCategoryImageView);
+
             mCategoryName.setText(category.getName());
         }
 
