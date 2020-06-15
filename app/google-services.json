@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "679172288150",
+    "firebase_url": "https://githiomi-renu.firebaseio.com",
+    "project_id": "githiomi-renu",
+    "storage_bucket": "githiomi-renu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679172288150:android:5be0b4de06be1d75279cb7",
+        "android_client_info": {
+          "package_name": "com.githiomi.renu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679172288150-pdepq828naesal709ccda04nf995efls.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.githiomi.renu",
+            "certificate_hash": "ae09361af0b8b081d41e5e61a150c94e75dc8ec3"
+          }
+        },
+        {
+          "client_id": "679172288150-ppq04b24hhlfgjj0bfcohsb9qqvr84nv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIrvqo2EQSCPILo8VA2AbmPJyN66JZ72I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679172288150-ppq04b24hhlfgjj0bfcohsb9qqvr84nv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
