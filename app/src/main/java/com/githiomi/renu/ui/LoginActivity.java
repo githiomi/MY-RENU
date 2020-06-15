@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity
     @BindView(R.id.edPassword) EditText wUserPassword;
     @BindView(R.id.btnLogin) Button wLoginButton;
     @BindView(R.id.tvAppName) TextView mAppName;
+    @BindView(R.id.tvToSignUp) TextView mToSignUp;
 
 //    Local variables
     // Date entry
@@ -53,7 +54,7 @@ public class LoginActivity extends AppCompatActivity
         ButterKnife.bind(this);
 
 //        Setting a typeface
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/HelloDarling.ttf");
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Bhellvast (dafont).ttf");
         mAppName.setTypeface(typeface);
 
 
@@ -67,12 +68,10 @@ public class LoginActivity extends AppCompatActivity
 
                 // If there is a firebase user, load directly to the main activity
                 if ( firebaseUser != null ){
-
                     Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
                     loginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(loginIntent);
                     finish();
-
                 }
             }
         };
@@ -80,12 +79,12 @@ public class LoginActivity extends AppCompatActivity
 //        Click listeners and focus changers
         // Click listeners
         wLoginButton.setOnClickListener(this);
+        mToSignUp.setOnClickListener(this);
         // Focus change
         wUserEmail.setOnFocusChangeListener(this);
         wUserPassword.setOnFocusChangeListener(this);
 
     }
-
 
 //    Custom method to login the user
     public void userLogin(){
@@ -101,9 +100,6 @@ public class LoginActivity extends AppCompatActivity
             String errorMessage = "Invalid password";
             wUserPassword.setError(errorMessage);
         }
-
-//        Check to see if the fields are filled in correctly so that the login is clickable
-        activateLoginButton();
 
         mFirebaseAuth.signInWithEmailAndPassword(mEmail, mPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -122,8 +118,10 @@ public class LoginActivity extends AppCompatActivity
 
 //    Custom method that will activate the login button if fields are filled
     private void activateLoginButton() {
-        wLoginButton.setClickable(true);
-        wLoginButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        if ( !(wUserEmail.equals("") && !(wUserPassword.equals("")))) {
+            wLoginButton.setClickable(true);
+            wLoginButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        }
     }
 
 //    Listeners
@@ -131,6 +129,11 @@ public class LoginActivity extends AppCompatActivity
     public void onClick(View v) {
         if ( v == wLoginButton ){
             userLogin();
+        }
+
+        if ( v == mToSignUp ){
+            Intent toSignUp = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(toSignUp);
         }
     }
 
@@ -141,6 +144,9 @@ public class LoginActivity extends AppCompatActivity
         }
 
         if ( v == wUserPassword ){
+            if ( !(wUserEmail.equals("") && !(wUserPassword.equals("")))) {
+                activateLoginButton();
+            }
             hideKeyboard(v);
         }
     }

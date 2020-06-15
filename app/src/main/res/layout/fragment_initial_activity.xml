@@ -21,13 +21,15 @@
 
         <ProgressBar
             android:id="@+id/initialPageProgressBar"
-            style="@android:style/Widget.ProgressBar.Inverse"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/appLogo"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
-            android:progressDrawable="@color/colorPrimary" />
+            android:indeterminate="false"
+            android:indeterminateTint="@color/white"
+            android:progressDrawable="@color/white" />
 
     </RelativeLayout>
 
