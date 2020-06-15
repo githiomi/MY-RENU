@@ -37,7 +37,6 @@ public class MainActivityFragment extends Fragment {
     private List<String> mCategoryNames;
 
 //    Binding widgets
-    @BindView(R.id.tvIdentifier) TextView mOnlyTextView;
 
     public MainActivityFragment() {
         // Required empty public constructor
@@ -101,11 +100,9 @@ public class MainActivityFragment extends Fragment {
 
                     }
                     Log.d(TAG, "onResponse: These are all the category names: " + mCategoryNames);
-                    mOnlyTextView.setText("Success");
                 }
                 else {
                     Log.d(TAG, "onResponse: Call was made but responce was not successful");
-                    mOnlyTextView.setText("Error");
                 }
 
             }
