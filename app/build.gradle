@@ -30,6 +30,7 @@ dependencies {
 
     implementation 'com.jakewharton:butterknife:10.2.1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 
     //noinspection GradleCompatible
@@ -79,5 +80,13 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:3.3.1'
     //    firebase authentication
     implementation 'com.google.firebase:firebase-auth:16.1.0'
+
+//    Dependencies copied from buyahi repo
+    implementation 'com.github.blackfizz:eazegraph:1.2.5l@aar'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.leo.simplearcloader:simplearcloader:1.0.+'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
 }
