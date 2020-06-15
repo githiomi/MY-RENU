@@ -37,31 +37,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <!-- TODO 3 Add Search container -->
-            <!-- We will make a look for the search box with CardView and TextView (this is only for click actions because later we will create another Activity to search) -->
-            <!-- TODO 4 Add <ViewPager> with id viewPagerHeader -->
-
-            <!-- TODO 5 Delete comment to <include below -->
-            <!--<include android:id="@+id/shimmerMeal"
-                layout="@layout/item_view_pager_header_shimmer" />-->
-
-            <TextView
-                android:id="@+id/categoriesHeader"
-                android:text="Meal Categories"
-                android:textSize="19sp"
-                android:textColor="@color/white"
-                android:layout_margin="5dp"
-                android:padding="10dp"
-                android:textStyle="bold"
-                android:layout_below="@id/pageTitleAppName"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvCategoriesHeader"
+                android:padding="20dp"
+                android:elevation="50dp"
+                app:cardCornerRadius="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                android:layout_below="@id/pageTitleAppName" >
+
+                <TextView
+                    android:id="@+id/categoriesHeader"
+                    android:text="Meal Categories"
+                    android:textSize="19sp"
+                    android:textColor="@color/white"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/pageTitleAppName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </androidx.cardview.widget.CardView>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerCategory"
                 android:scrollbars="none"
                 android:layout_marginTop="15dp"
-                android:layout_below="@id/categoriesHeader"
+                android:layout_below="@id/cvCategoriesHeader"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
