@@ -156,4 +156,5 @@ public class MainActivityFragment extends Fragment {
         mProgressBar.setVisibility(View.GONE);
         mErrorMessage.setVisibility(View.VISIBLE);
     }
+
 }

@@ -6,15 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".fragments.InitialActivityFragment">
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-            <View
-                android:id="@+id/maroonPageHeader"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:background="@color/colorPrimary" />
+    <RelativeLayout
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
             <ImageView
                 android:id="@+id/appLogo"
@@ -24,24 +19,15 @@
                 android:layout_marginTop="50dp"
                 android:src="@drawable/applogo" />
 
-             <ProgressBar
-                 android:id="@+id/initialPageProgressBar"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_centerHorizontal="true"
-                 android:layout_marginTop="50dp"
-                 android:layout_below="@id/maroonPageHeader" />
-
-             <TextView
-                    android:padding="10dp"
-                    android:gravity="center"
-                    android:textColor="@color/colorWhite"
-                    android:text="@string/createdBy"
-                    android:background="@color/colorPrimaryLight"
-                    android:layout_alignParentBottom="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"/>
+        <ProgressBar
+            android:id="@+id/initialPageProgressBar"
+            style="@android:style/Widget.ProgressBar.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appLogo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:progressDrawable="@color/colorPrimary" />
 
     </RelativeLayout>
 

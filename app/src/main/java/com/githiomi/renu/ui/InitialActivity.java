@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.githiomi.renu.R;
 
@@ -12,16 +13,15 @@ import butterknife.ButterKnife;
 
 public class InitialActivity extends AppCompatActivity {
 
-//    Binding the fragment that houses the initial activity layout
-    @BindView(R.id.flInitialFragmentView) Fragment mFragmentInitial;
+//    TAG
+    private static final String TAG = InitialActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial);
 
-//        Adding butter knife that binds the views
-        ButterKnife.bind(this);
+        Log.d(TAG, "onCreate: Initial activity init");
 
     }
 
