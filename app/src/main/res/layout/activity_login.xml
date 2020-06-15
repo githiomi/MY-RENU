@@ -1,9 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     tools:context=".ui.LoginActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/loginHeaderView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/tvLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="English (UK) ^ "
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginHeaderView"
+        android:layout_marginTop="100dp"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        android:padding="10dp"
+        android:text="@string/app_name"
+        android:textColor="@color/black" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvAppName"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        app:cardCornerRadius="8dp"
+        android:elevation="20dp">
+
+        <EditText
+            android:id="@+id/edEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvAppName"
+            android:background="@color/colorWhiteDark"
+            android:hint="@string/email"
+            android:textColorHint="@color/colorPrimaryLight"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cvUsername"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        app:cardCornerRadius="8dp"
+        android:elevation="20dp">
+
+        <EditText
+            android:id="@+id/edPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvAppName"
+            android:background="@color/colorWhiteDark"
+            android:hint="@string/password"
+            android:textColorHint="@color/colorPrimaryLight"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:drawableRight="@drawable/ic_action_passwordEye"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cvPassword"
+        android:layout_margin="30dp"
+        android:background="@color/colorPrimaryLight"
+        android:text="Log In"
+        android:textAllCaps="false"
+        android:clickable="false"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
