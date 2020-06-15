@@ -3,4 +3,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment by Dhosio</string>
     <string name="createdBy">Dhosio</string>
+    <string name="categoryError">Sorry! Could not communicate with server. Please check internet connection</string>
 </resources>

@@ -61,8 +61,27 @@
 
             </androidx.cardview.widget.CardView>
 
+            <ProgressBar
+                android:id="@+id/prLoadingCategories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/tvErrorMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoryError"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:textSize="15sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textAlignment="center"
+                android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
                 android:id="@+id/recyclerCategory"
                 android:scrollbars="none"
                 android:clipToPadding="false"
