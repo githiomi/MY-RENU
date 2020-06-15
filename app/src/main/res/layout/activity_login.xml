@@ -82,7 +82,7 @@
             android:textColorHint="@color/colorPrimaryLight"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:drawableRight="@drawable/ic_action_passwordEye"/>
+            android:drawableRight="@drawable/ic_action_passwordeye"/>
 
     </androidx.cardview.widget.CardView>
 

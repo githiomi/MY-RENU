@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.githiomi.renu.R;
+import com.githiomi.renu.ui.LoginActivity;
 import com.githiomi.renu.ui.MainActivity;
 
 import butterknife.BindView;
@@ -80,7 +81,7 @@ public class InitialActivityFragment extends Fragment {
 //    Custom method that will take the user from this initial loading page to the login activity
     private void goToIntent() {
 
-        Intent intent = new Intent(mContext, MainActivity.class);
+        Intent intent = new Intent(mContext, LoginActivity.class);
         startActivity(intent);
 
     }
