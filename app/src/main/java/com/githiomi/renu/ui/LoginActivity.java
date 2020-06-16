@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity
         }
 
         if ( v == mToSignUp ){
-            Intent toSignUp = new Intent(LoginActivity.this, MainActivity.class);
+            Intent toSignUp = new Intent(LoginActivity.this, SignUpActivity.class);
             startActivity(toSignUp);
         }
     }
