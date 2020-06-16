@@ -9,11 +9,15 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.githiomi.renu.R;
 import com.githiomi.renu.models.Constants;
@@ -113,6 +117,45 @@ public class LandingActivity extends AppCompatActivity
                 return;
             }
         }
+    }
+
+//    Inflating the menu dropdown
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.landing_page, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if ( id == R.id.settings ){
+            Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+        }
+
+        if ( id == R.id.profile ){
+            Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+        }
+
+        if ( id == R.id.logout ){
+            // Method to logout of the user account
+            Toast.makeText(this, "Logging out", Toast.LENGTH_SHORT).show();
+            logout();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+//    Custom method to log out the user
+    public void logout(){
+        FirebaseAuth.getInstance().signOut();
+        Intent backToLogin = new Intent(LandingActivity.this, LoginActivity.class);
+        backToLogin.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(backToLogin);
+        finish();
     }
 
 //    The method that will activate the proceed button
