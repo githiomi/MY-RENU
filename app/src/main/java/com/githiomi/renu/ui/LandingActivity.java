@@ -1,5 +1,6 @@
 package com.githiomi.renu.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 
 import com.githiomi.renu.R;
 import com.githiomi.renu.models.Constants;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +40,9 @@ public class LandingActivity extends AppCompatActivity
     // Shared preferences
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mSharedPreferencesEditor;
+    // Firebase
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,24 @@ public class LandingActivity extends AppCompatActivity
 
 //        Butter knife binding
         ButterKnife.bind(this);
+
+//        Initializing the firebase variables
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                FirebaseUser signedInUser = firebaseAuth.getCurrentUser();
+
+                if ( signedInUser != null ) {
+                    String username = signedInUser.getDisplayName();
+                    getSupportActionBar().setTitle(username);
+                }else{
+                    getSupportActionBar().setTitle("Welcome");
+                }
+
+            }
+        };
 
 //        Setting a typeface to the app name
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Bhellvast (dafont).ttf");
@@ -113,6 +137,22 @@ public class LandingActivity extends AppCompatActivity
             wProceedToCategories.setClickable(true);
             wProceedToCategories.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             wProceedToCategories.setElevation(30);
+        }
+    }
+
+//    Firebase overriding listeners
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mFirebaseAuth.addAuthStateListener(mAuthStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if ( mFirebaseAuth != null ){
+            mFirebaseAuth.removeAuthStateListener(mAuthStateListener);
         }
     }
 }
