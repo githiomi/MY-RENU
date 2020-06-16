@@ -10,5 +10,7 @@ public class Constants {
 
 
 //    Project constants
-    public static final String TABLE_NUMBER = "tableNumber";
+    // table number
+     public static final String TABLE_NUMBER = "tableNumber";
+
 }
