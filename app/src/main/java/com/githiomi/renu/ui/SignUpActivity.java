@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,10 +32,11 @@ public class SignUpActivity extends AppCompatActivity
     private static final String TAG = SignUpActivity.class.getSimpleName();
 
 //    Binding widgets using Butter knife
+    @BindView(R.id.tvAppName) TextView mAppName;
     @BindView(R.id.edUsername) EditText wUsername;
     @BindView(R.id.edEmail) EditText wEmail;
     @BindView(R.id.edPassword) EditText wPassword;
-    @BindView(R.id.edConfrimPassword) EditText wConfirmPassword;
+    @BindView(R.id.edConfirmPassword) EditText wConfirmPassword;
     @BindView(R.id.btnSignUp) Button wBtnSignUp;
     @BindView(R.id.tvBackToLogin) TextView wBackToLogin;
 
@@ -60,6 +62,10 @@ public class SignUpActivity extends AppCompatActivity
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
             }
         };
+
+//        Adding a typeface to the app name
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Bhellvast (dafont).ttf");
+        mAppName.setTypeface(typeface);
 
 //        Listeners
         // On click listeners
