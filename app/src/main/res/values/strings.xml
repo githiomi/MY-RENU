@@ -17,4 +17,6 @@
 
     <string name="signUp">Sign Up</string>
 
+    <string name="tableNumber">Table number</string>
+
 </resources>
