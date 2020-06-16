@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity
 
                 // If there is a firebase user, load directly to the main activity
                 if ( firebaseUser != null ){
-                    Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent loginIntent = new Intent(LoginActivity.this, LandingActivity.class);
                     loginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(loginIntent);
                     finish();
