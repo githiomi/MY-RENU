@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity
                 if ( task.isSuccessful() ) {
                     Toast.makeText(LoginActivity.this, "Signed in", Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(LoginActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Invalid Email or Password!", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -121,6 +121,7 @@ public class LoginActivity extends AppCompatActivity
         if ( !(wUserEmail.equals("") && !(wUserPassword.equals("")))) {
             wLoginButton.setClickable(true);
             wLoginButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            wLoginButton.setElevation(30);
         }
     }
 

@@ -82,7 +82,9 @@ public class InitialActivityFragment extends Fragment {
     private void goToIntent() {
 
         Intent intent = new Intent(mContext, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        getActivity().finish();
 
     }
 

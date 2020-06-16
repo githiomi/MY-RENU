@@ -60,6 +60,19 @@ public class SignUpActivity extends AppCompatActivity
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                FirebaseUser signedUpUser = firebaseAuth.getCurrentUser();
+
+                // Method that will take the user to main activity after signing up
+                if ( signedUpUser != null ){
+
+                    Intent toTableNumberActivity = new Intent(SignUpActivity.this, MainActivity.class);
+                    toTableNumberActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
+                    startActivity(toTableNumberActivity);
+                    finish();
+
+                }
+
             }
         };
 
@@ -189,7 +202,15 @@ public class SignUpActivity extends AppCompatActivity
 
         if ( v == wConfirmPassword ){
             hideKeyboard(v);
+            activateSignUpButton();
         }
+    }
+
+//    THis method will make the sign up button active
+    public void activateSignUpButton(){
+        wBtnSignUp.setClickable(true);
+        wBtnSignUp.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        wBtnSignUp.setElevation(30);
     }
 
 //    Custom method that will hide the keyboard when the user clicks anywhere else
