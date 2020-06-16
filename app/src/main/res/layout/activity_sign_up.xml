@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:clickable="true"
     android:focusableInTouchMode="true"
-    tools:context=".ui.LoginActivity">
+    tools:context=".ui.SignUpActivity">
 
     <View
         android:id="@+id/loginHeaderView"
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/loginHeaderView"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:textAlignment="center"
         android:textSize="35dp"
         android:padding="10dp"
@@ -36,7 +36,7 @@
         android:textColor="@color/black" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvEmail"
+        android:id="@+id/cvUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvAppName"
@@ -48,12 +48,38 @@
         android:elevation="20dp">
 
         <EditText
-            android:id="@+id/edEmail"
+            android:id="@+id/edUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvAppName"
             android:background="@color/colorWhiteDark"
+            android:hint="@string/username"
+            android:textColorHint="@color/colorPrimaryLight"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cvUsername"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        app:cardCornerRadius="8dp"
+        android:elevation="20dp">
+
+        <EditText
+            android:id="@+id/edEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cvUsername"
+            android:background="@color/colorWhiteDark"
             android:hint="@string/email"
+            android:inputType="textPassword"
             android:textColorHint="@color/colorPrimaryLight"
             android:padding="10dp"
             android:textColor="@color/black" />
@@ -76,9 +102,36 @@
             android:id="@+id/edPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvAppName"
+            android:layout_below="@id/cvEmail"
             android:background="@color/colorWhiteDark"
             android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/colorPrimaryLight"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:drawableRight="@drawable/ic_action_passwordeye"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cvPassword"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        app:cardCornerRadius="8dp"
+        android:elevation="20dp">
+
+        <EditText
+            android:id="@+id/edConfrimPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cvPassword"
+            android:background="@color/colorWhiteDark"
+            android:hint="@string/confirmPassword"
             android:inputType="textPassword"
             android:textColorHint="@color/colorPrimaryLight"
             android:padding="10dp"
@@ -91,10 +144,10 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cvPassword"
+        android:layout_below="@id/cvConfirmPassword"
         android:layout_margin="30dp"
         android:background="@color/colorPrimaryLight"
-        android:text="Log In"
+        android:text="@string/signUp"
         android:textAllCaps="false"
         android:clickable="false"
         android:textColor="@color/white" />
@@ -106,7 +159,7 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
         android:padding="10dp"
-        android:text="Don't have an account? Sign up..."
+        android:text="Already have an account? Log in..."
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimary" />
