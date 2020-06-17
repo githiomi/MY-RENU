@@ -67,6 +67,12 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <ProgressBar
+                    android:id="@+id/prLoadingCategories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
                 <TextView
                     android:id="@+id/tvErrorMessage"
                     android:layout_width="wrap_content"
@@ -83,6 +89,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/cakeRecyclerView"
                     android:scrollbars="none"
+                    android:visibility="gone"
                     android:clipToPadding="false"
                     android:layout_marginTop="25dp"
                     android:paddingVertical="3dp"
@@ -109,6 +116,7 @@
                     android:layout_marginTop="20dp"/>
 
             </RelativeLayout>
+
         </androidx.core.widget.NestedScrollView>
 
     </RelativeLayout>

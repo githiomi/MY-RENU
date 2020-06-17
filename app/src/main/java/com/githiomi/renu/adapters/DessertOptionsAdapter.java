@@ -1,6 +1,7 @@
 package com.githiomi.renu.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.githiomi.renu.R;
+import com.githiomi.renu.ui.Dessert_CakeActivity;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -110,7 +112,11 @@ public class DessertOptionsAdapter extends RecyclerView.Adapter<DessertOptionsAd
             int clickedItem = getAdapterPosition();
 
             if ( clickedItem == 0 ){
-                Toast.makeText(mContext, "Clicked!", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mContext, "Clicked!", Toast.LENGTH_SHORT).show();
+
+                Intent toCakeDessertActivity = new Intent(mContext, Dessert_CakeActivity.class);
+                mContext.startActivity(toCakeDessertActivity);
+
             }
 
             if ( clickedItem == 1 ){

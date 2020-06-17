@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,9 +72,6 @@ public class CakeDessertAdapter extends RecyclerView.Adapter<CakeDessertAdapter.
         @BindView(R.id.tvQuantity) TextView wQuantity;
         @BindView(R.id.btnAddToCart) Button wAddToOrder;
 
-//        Getting the quantity of a meal order
-        private int orderQuantity = Integer.parseInt(wQuantity.getText().toString().trim());
-
         public CakeItemViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -90,15 +88,18 @@ public class CakeDessertAdapter extends RecyclerView.Adapter<CakeDessertAdapter.
             Log.d(TAG, "bindCake: Bind the cake object init");
 
             wCakeName.setText(dessert.getName());
-            wCakePrice.setText(dessert.getName());
+            wCakePrice.setText(dessert.getPrice());
+
+//        Getting the quantity of a meal order
+            final int orderQuantity = 1;
 
             wAddQuantity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     if ( orderQuantity > 1 ) {
-                        int newReducedQuantity = (orderQuantity + 1);
-                        orderQuantity = newReducedQuantity;
+                        int newReducedQuantity = (orderQuantity - 1);
+                        wQuantity.setText("" + newReducedQuantity);
                     }
                 }
             });
@@ -108,12 +109,10 @@ public class CakeDessertAdapter extends RecyclerView.Adapter<CakeDessertAdapter.
                 public void onClick(View v) {
 
                     int newAddedQuantity = ( orderQuantity + 1 );
-                    orderQuantity = newAddedQuantity;
+                    wQuantity.setText("" + newAddedQuantity);
 
                 }
             });
-
-            wQuantity.setText("" + orderQuantity);
         }
 
 //        On click listener for each item view

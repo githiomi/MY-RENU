@@ -39,7 +39,6 @@
         android:layout_marginTop="20dp"
         android:textAlignment="center"
         android:textSize="25dp"
-        android:textAllCaps="true"
         android:padding="10dp"
         android:text="@string/tableNumber"
         android:textColor="@color/black" />
