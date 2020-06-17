@@ -3,6 +3,8 @@ package com.githiomi.renu.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.githiomi.renu.R;
+import com.githiomi.renu.adapters.DessertOptionsAdapter;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -29,6 +33,8 @@ public class SubCategoryActivityFragment extends Fragment {
     private String[] dessertDescription = {"Baking the difference. We create delicious memories. Just like home", "We make our own all-natural ice cream using the finest dairy-fresh cream and milk"};
     private int[] dessertImages = {R.drawable.cakesdessert, R.drawable.icecreamdessert};
 
+//    Binding widgets
+    @BindView(R.id.recycleDesserts) RecyclerView wDessertRecyclerView;
 
     public SubCategoryActivityFragment() {
         // Required empty public constructor
@@ -50,6 +56,7 @@ public class SubCategoryActivityFragment extends Fragment {
 
         if (getArguments() != null) {
         }
+
     }
 
     @Override
@@ -61,6 +68,20 @@ public class SubCategoryActivityFragment extends Fragment {
 //        Binding the widgets using butter knife
         ButterKnife.bind(this, mainView);
 
+        attachItemsToAdapter(dessertCategories, dessertImages);
+
         return mainView;
     }
+
+//    Custom method that will create the adapter and pass data to it
+    private void attachItemsToAdapter(String[] dessertNames, int[] dessertImages){
+
+        DessertOptionsAdapter dessertOptionsAdapter = new DessertOptionsAdapter(dessertNames, dessertImages);
+
+        wDessertRecyclerView.setAdapter(dessertOptionsAdapter);
+        wDessertRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        wDessertRecyclerView.setHasFixedSize(true);
+
+    }
+
 }
