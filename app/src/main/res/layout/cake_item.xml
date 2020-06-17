@@ -91,7 +91,7 @@
                         android:layout_width="27dp"
                         android:foreground="@drawable/ic_action_add"
                         android:layout_height="31dp"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dp"
                         android:background="@color/white"
                         android:layout_centerVertical="true" />
@@ -112,7 +112,7 @@
                         android:layout_width="27dp"
                         android:layout_height="31dp"
                         android:layout_marginRight="10dp"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
                         android:foreground="@drawable/ic_action_less"
                         android:background="@color/white" />

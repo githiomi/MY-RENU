@@ -93,7 +93,7 @@ public class CakeDessertAdapter extends RecyclerView.Adapter<CakeDessertAdapter.
 //        Getting the quantity of a meal order
             final int orderQuantity = 1;
 
-            wAddQuantity.setOnClickListener(new View.OnClickListener() {
+            wRemoveQuantity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
@@ -104,7 +104,7 @@ public class CakeDessertAdapter extends RecyclerView.Adapter<CakeDessertAdapter.
                 }
             });
 
-            wRemoveQuantity.setOnClickListener(new View.OnClickListener() {
+            wAddQuantity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
