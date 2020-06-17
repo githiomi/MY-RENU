@@ -32,6 +32,8 @@ public class SubCategoryActivityFragment extends Fragment {
     private String[] dessertCategories = {"Cakes", "Ice Cream"};
     private String[] dessertDescription = {"Baking the difference. We create delicious memories. Just like home", "We make our own all-natural ice cream using the finest dairy-fresh cream and milk"};
     private int[] dessertImages = {R.drawable.cakesdessert, R.drawable.icecreamdessert};
+    // for the adapter
+    private DessertOptionsAdapter mDessertOptionsAdapter;
 
 //    Binding widgets
     @BindView(R.id.recycleDesserts) RecyclerView wDessertRecyclerView;
@@ -74,11 +76,12 @@ public class SubCategoryActivityFragment extends Fragment {
     }
 
 //    Custom method that will create the adapter and pass data to it
-    private void attachItemsToAdapter(String[] dessertNames, int[] dessertImages){
+    public void attachItemsToAdapter(String[] dessertNames, int[] dessertImages){
+        Log.d(TAG, "attachItemsToAdapter: Attach to adapter init");
 
-        DessertOptionsAdapter dessertOptionsAdapter = new DessertOptionsAdapter(dessertNames, dessertImages);
+        mDessertOptionsAdapter = new DessertOptionsAdapter(getContext(), dessertNames, dessertDescription, dessertImages);
 
-        wDessertRecyclerView.setAdapter(dessertOptionsAdapter);
+        wDessertRecyclerView.setAdapter(mDessertOptionsAdapter);
         wDessertRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         wDessertRecyclerView.setHasFixedSize(true);
 

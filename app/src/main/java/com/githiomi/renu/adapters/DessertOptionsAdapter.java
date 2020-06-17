@@ -1,6 +1,7 @@
 package com.githiomi.renu.adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,15 +27,21 @@ public class DessertOptionsAdapter extends RecyclerView.Adapter<DessertOptionsAd
 //    Local variables
     // For incoming data
     private String[] mDessertNames;
+    private String[] mDessertDescriptions;
     private int[] mDessertImages;
     // context
     private Context mContext;
-
+    // for the typeface
+    private Typeface typeface;
 
 //    Adapter constructor
-    public DessertOptionsAdapter(String[] dessertNames, int[] dessertImages) {
+    public DessertOptionsAdapter(Context context, String[] dessertNames, String[] dessertDescriptions, int[] dessertImages) {
+        this.mContext = context;
         this.mDessertNames = dessertNames;
+        this.mDessertDescriptions = dessertDescriptions;
         this.mDessertImages = dessertImages;
+
+        Log.d(TAG, "DessertOptionsAdapter: Get count: " + mDessertNames.length + " " + mDessertImages.length);
     }
 
     @NonNull
@@ -52,46 +59,53 @@ public class DessertOptionsAdapter extends RecyclerView.Adapter<DessertOptionsAd
     public void onBindViewHolder(@NonNull DessertViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: Bound the view holder and passed items");
 
-        holder.bindDessertItems(mDessertNames[position], mDessertImages[position]);
+        holder.bindDessertItems(mDessertNames[position], mDessertDescriptions[position], mDessertImages[position]);
     }
 
     @Override
     public int getItemCount() {
-        return mDessertNames.length;
+        return mDessertImages.length;
     }
 
     public class DessertViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
 //        Picasso resizing
-        private final int MAX_WIDTH = 300;
-        private final int MAX_HEIGHT = 300;
+        private final int MAX_WIDTH = 150;
+        private final int MAX_HEIGHT = 150;
 
 //        binding widgets
         @BindView(R.id.tvDessertOptionName) TextView dessertOptionName;
         @BindView(R.id.dessertItemBackgroundImage) ImageView dessertOptionImage;
+        @BindView(R.id.tvDessertDescription) TextView dessertOptionDescription;
 
         public DessertViewHolder(@NonNull View itemView) {
             super(itemView);
+
+//            Instantiating the typeface
+            typeface = Typeface.createFromAsset(mContext.getAssets(), "fonts/Bhellvast (dafont).ttf");
 
 //            Binding views using butter knife
             ButterKnife.bind(this, itemView);
 
 //            Getting the context
-            mContext = itemView.getContext();
+//            mContext = itemView.getContext();
 
 //            Setting the on click listener
             itemView.setOnClickListener(this);
         }
 
 //        Custom method that will bind the items passed to the views
-        public void bindDessertItems(String name, int imageId){
+        public void bindDessertItems(String name, String description, int imageId){
 
             Picasso.get().load(imageId)
-                            .resize(MAX_WIDTH, MAX_HEIGHT)
-                            .centerCrop()
+//                            .resize(MAX_WIDTH, MAX_HEIGHT)
+//                            .centerCrop()
                             .into(dessertOptionImage);
 
             dessertOptionName.setText(name);
+            dessertOptionName.setTypeface(typeface);
+
+            dessertOptionDescription.setText(description);
 
         }
 
