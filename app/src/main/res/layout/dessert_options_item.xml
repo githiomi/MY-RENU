@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvDessertOptions"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/itemBackgroundImage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/cakesdessert" />
+
+            <TextView
+                android:id="@+id/tvDessertOptionName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="30dp"
+                android:text="Cakes"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingLeft="100dp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
