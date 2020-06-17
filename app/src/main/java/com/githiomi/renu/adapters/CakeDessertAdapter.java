@@ -2,6 +2,7 @@ package com.githiomi.renu.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,9 @@ import butterknife.ButterKnife;
 
 public class CakeDessertAdapter extends RecyclerView.Adapter<CakeDessertAdapter.CakeItemViewHolder> {
 
+//    TAG
+    private static final String TAG = CakeDessertAdapter.class.getSimpleName();
+
 //    Local variables
     // Context
     private Context mContext;
@@ -30,6 +34,8 @@ public class CakeDessertAdapter extends RecyclerView.Adapter<CakeDessertAdapter.
 
 //    Constructor for the adapter
     public CakeDessertAdapter(Context context, List<Desserts> desserts) {
+        Log.d(TAG, "CakeDessertAdapter: Cake Item Adapter init");
+
         this.mContext = context;
         this.mDesserts = desserts;
     }
@@ -80,6 +86,8 @@ public class CakeDessertAdapter extends RecyclerView.Adapter<CakeDessertAdapter.
 
 //        Method that will receive a single cake and get its properties and assign them to the views
         public void bindCake(Desserts dessert){
+
+            Log.d(TAG, "bindCake: Bind the cake object init");
 
             wCakeName.setText(dessert.getName());
             wCakePrice.setText(dessert.getName());
