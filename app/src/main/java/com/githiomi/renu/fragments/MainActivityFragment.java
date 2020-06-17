@@ -141,7 +141,7 @@ public class MainActivityFragment extends
                     passToAdapter(mAllCategories);
                 }
                 else {
-                    Log.d(TAG, "onResponse: Call was made but responce was not successful");
+                    Log.d(TAG, "onResponse: Call was made but response was not successful");
                 }
 
             }

@@ -1,6 +1,7 @@
 package com.githiomi.renu.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.icu.util.ULocale;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.githiomi.renu.R;
 import com.githiomi.renu.models.Category;
+import com.githiomi.renu.ui.SubCategoryActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -90,7 +92,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 //        Overridden method for the item on click listener
         @Override
         public void onClick(View v) {
+
             Toast.makeText(mContext, "Clicked: " + mCategoriesList.get(getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+
+            Intent toDessertActivity = new Intent(mContext, SubCategoryActivity.class);
+            mContext.startActivity(toDessertActivity);
+
         }
     }
 }

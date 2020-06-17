@@ -57,7 +57,7 @@ public class DessertOptionsAdapter extends RecyclerView.Adapter<DessertOptionsAd
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mDessertNames.length;
     }
 
     public class DessertViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
