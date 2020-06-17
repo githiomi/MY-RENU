@@ -93,10 +93,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         @Override
         public void onClick(View v) {
 
+            int itemPosition = getAdapterPosition();
+
+            if ( itemPosition == 1 ) {
+                Intent toDessertActivity = new Intent(mContext, SubCategoryActivity.class);
+                mContext.startActivity(toDessertActivity);
+            }
+
             Toast.makeText(mContext, "Clicked: " + mCategoriesList.get(getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
 
-            Intent toDessertActivity = new Intent(mContext, SubCategoryActivity.class);
-            mContext.startActivity(toDessertActivity);
+
 
         }
     }

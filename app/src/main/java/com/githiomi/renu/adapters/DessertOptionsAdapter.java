@@ -87,9 +87,6 @@ public class DessertOptionsAdapter extends RecyclerView.Adapter<DessertOptionsAd
 //            Binding views using butter knife
             ButterKnife.bind(this, itemView);
 
-//            Getting the context
-//            mContext = itemView.getContext();
-
 //            Setting the on click listener
             itemView.setOnClickListener(this);
         }
@@ -98,8 +95,6 @@ public class DessertOptionsAdapter extends RecyclerView.Adapter<DessertOptionsAd
         public void bindDessertItems(String name, String description, int imageId){
 
             Picasso.get().load(imageId)
-//                            .resize(MAX_WIDTH, MAX_HEIGHT)
-//                            .centerCrop()
                             .into(dessertOptionImage);
 
             dessertOptionName.setText(name);
@@ -112,8 +107,14 @@ public class DessertOptionsAdapter extends RecyclerView.Adapter<DessertOptionsAd
         @Override
         public void onClick(View v) {
 
-            if ( v == itemView ){
+            int clickedItem = getAdapterPosition();
+
+            if ( clickedItem == 0 ){
                 Toast.makeText(mContext, "Clicked!", Toast.LENGTH_SHORT).show();
+            }
+
+            if ( clickedItem == 1 ){
+                Toast.makeText(mContext, "Clicked! Clicked!", Toast.LENGTH_SHORT).show();
             }
 
         }

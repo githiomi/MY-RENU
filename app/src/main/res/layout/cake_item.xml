@@ -1,0 +1,139 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        android:elevation="@dimen/default_gap">
+
+<!--                <com.facebook.shimmer.ShimmerFrameLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:id="@+id/ivCategoryImage"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:padding="5dp"
+                android:src="@drawable/bananasplit"
+                android:layout_margin="5dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:background="#DFDFDF" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp" >
+
+             <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+              <TextView
+                android:id="@+id/tvCakeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:textAlignment="center"
+                android:text="Apple Cinnamon Cake"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp" />
+
+                 <TextView
+                     android:id="@+id/tvCakePrice"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Ksh. 190"
+                     android:textColor="@color/black"
+                     android:padding="5dp"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true" />
+
+             </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:elevation="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <ImageView
+                        android:id="@+id/btnAddQuantity"
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_action_add" />
+
+                    <TextView
+                        android:id="@+id/tvQuantity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <ImageView
+                        android:id="@+id/btnRemoveQuantity"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_action_less" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btnAddToCart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add To Order"
+                android:elevation="20dp"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:drawableLeft="@drawable/ic_action_addtoorder"
+                android:padding="5dp"
+                android:layout_margin="5dp" />
+
+        </LinearLayout>
+
+
+<!--      </com.facebook.shimmer.ShimmerFrameLayout>-->
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

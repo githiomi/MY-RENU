@@ -1,5 +1,6 @@
 package com.githiomi.renu.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,9 +11,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.githiomi.renu.R;
 import com.githiomi.renu.adapters.DessertOptionsAdapter;
+import com.githiomi.renu.ui.MainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,7 +25,7 @@ import butterknife.ButterKnife;
  * Use the {@link SubCategoryActivityFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SubCategoryActivityFragment extends Fragment {
+public class SubCategoryActivityFragment extends Fragment implements View.OnClickListener{
 
 //    TAG
     private static final String TAG = SubCategoryActivityFragment.class.getSimpleName();
@@ -36,6 +39,7 @@ public class SubCategoryActivityFragment extends Fragment {
     private DessertOptionsAdapter mDessertOptionsAdapter;
 
 //    Binding widgets
+    @BindView(R.id.pageTitleDessert) TextView wTextViewDesserts;
     @BindView(R.id.recycleDesserts) RecyclerView wDessertRecyclerView;
 
     public SubCategoryActivityFragment() {
@@ -70,13 +74,18 @@ public class SubCategoryActivityFragment extends Fragment {
 //        Binding the widgets using butter knife
         ButterKnife.bind(this, mainView);
 
-        attachItemsToAdapter(dessertCategories, dessertImages);
+//        Setting listeners
+        // To go back to categories page
+        wTextViewDesserts.setOnClickListener(this);
+
+//        Send data to the adapter to be displayed
+        attachItemsToAdapter(dessertCategories, dessertDescription, dessertImages);
 
         return mainView;
     }
 
 //    Custom method that will create the adapter and pass data to it
-    public void attachItemsToAdapter(String[] dessertNames, int[] dessertImages){
+    public void attachItemsToAdapter(String[] dessertNames, String[] dessertDescription, int[] dessertImages){
         Log.d(TAG, "attachItemsToAdapter: Attach to adapter init");
 
         mDessertOptionsAdapter = new DessertOptionsAdapter(getContext(), dessertNames, dessertDescription, dessertImages);
@@ -87,4 +96,12 @@ public class SubCategoryActivityFragment extends Fragment {
 
     }
 
+//    On click listener override
+    @Override
+    public void onClick(View v) {
+        if (v == wTextViewDesserts ){
+            Intent backToCategories = new Intent(getActivity(), MainActivity.class);
+            startActivity(backToCategories);
+        }
+    }
 }
